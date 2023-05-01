@@ -72,13 +72,41 @@ class _quotesPageState extends State<quotesPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-     body: Center(
-        child: Text(
-          Global.currentQuote,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24),
-        ),
+      appBar: AppBar(
+        title: Text("Quotes"),
+        centerTitle: true,
+        elevation: 4,
       ),
+     body: Container(
+       decoration: BoxDecoration(
+         gradient: LinearGradient(
+             begin: Alignment.topCenter,
+             end: Alignment.bottomCenter,
+             colors: [
+           Colors.white12,
+           Colors.white10,
+         ])
+       ),
+       child: Container(
+         margin: EdgeInsets.all(25),
+         decoration: BoxDecoration(
+           gradient: LinearGradient(
+             begin: Alignment.topCenter,
+               end: Alignment.bottomCenter,
+               colors: [
+             Colors.black26,
+             Colors.black87,
+           ])
+         ),
+         child: Center(
+            child: Text(
+              Global.currentQuote,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+       ),
+     ),
     );
   }
 
