@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:quote_app/modal/history_modal.dart';
+
 import 'package:sqflite/sqflite.dart';
 
 import '../../controller/helper/QuotesGlobal.dart';
-import '../../controller/helper/database_handler.dart';
-import '../../controller/helper/history_repo.dart';
+import '../../controller/helper/db_helper.dart';
+
+
 class quotesPage extends StatefulWidget {
   const quotesPage({Key? key}) : super(key: key);
 
@@ -20,13 +21,29 @@ class _quotesPageState extends State<quotesPage> {
   late String currentQuote;
   late Timer timer;
   int quoteIndex = 0;
-  Database? _database;
+
+  List<Map<String, dynamic>> _allData = [];
+
+  bool _isLoading = true;
+
+  void _refreshData() async {
+    final data = await SQLHelper.getAllData();
+    setState(() {
+      _allData = data;
+      _isLoading = false;
+    });
+  }
+
+  Future<void> _addData() async {
+    await SQLHelper.createData(currentQuote);
+  }
 
   @override
   void initState() {
     super.initState();
     currentQuote = Global.allquotes[quoteIndex];
     timer = Timer.periodic(Duration(seconds: 10), (Timer t) => changeQuote());
+    _refreshData();
   }
 
   void changeQuote() {
@@ -37,8 +54,6 @@ class _quotesPageState extends State<quotesPage> {
       print("**************************");
       print("${Global.historylist}");
       print("**************************");
-      insertDB();
-      getFromHistory();
     });
   }
   @override
@@ -60,28 +75,7 @@ class _quotesPageState extends State<quotesPage> {
       ),
     );
   }
-  Future<Database?> openDB() async {
-    _database = await DataBaseHandler().openDB();
-    return _database;
-  }
 
-Future<void> insertDB() async {
-  _database = await openDB();
 
-  HistoryRepo historyRepo = new HistoryRepo();
-  historyRepo.createTable(_database);
 
-  HistoryModal   historyModal = new HistoryModal(currentQuote);
-
-  await _database?.insert('History', historyModal.toMap());
-
-  await _database?.close();
-}
-  Future<void> getFromHistory() async {
-    _database = await openDB();
-
-    HistoryRepo historyRepo = new HistoryRepo();
-    await historyRepo.getHistory(_database);
-    await _database?.close();
-  }
 }

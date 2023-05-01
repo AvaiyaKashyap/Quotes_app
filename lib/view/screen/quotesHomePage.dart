@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:quote_app/controller/helper/database_handler.dart';
-import 'package:quote_app/controller/helper/history_repo.dart';
+import 'package:quote_app/controller/helper/db_helper.dart';
+
 import 'package:sqflite/sqflite.dart';
 import '../../controller/helper/quotesApiHelper.dart';
 import '../../modal/quotesModal.dart';
@@ -23,11 +23,16 @@ class _QuotesHomePageState extends State<QuotesHomePage> {
       print(Global.getQuote);
     });
   }
+
+
+
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     timer = Timer.periodic(Duration(seconds: 10), (Timer t) => quotesRefresh());
+
   }
   @override
   Widget build(BuildContext context) {
