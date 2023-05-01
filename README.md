@@ -1,16 +1,7 @@
-# quote_app
+Quotes app 
+Save history useing LocalDB/SQLite
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2023-05-01 at 11 33 17 PM](https://user-images.githubusercontent.com/88942744/235502909-b6405038-6c25-4624-8719-6f72937e45ab.jpeg)
+![WhatsApp Image 2023-05-01 at 11 33 18 PM](https://user-images.githubusercontent.com/88942744/235502910-582a94c9-1220-4386-8210-bae42dbfbc15.jpeg)
+![WhatsApp Image 2023-05-01 at 11 33 18 PM (1)](https://user-images.githubusercontent.com/88942744/235502917-a56e8899-4eaa-423d-9a10-c8f6940a1146.jpeg)
+![WhatsApp Image 2023-05-01 at 11 33 18 PM (2)](https://user-images.githubusercontent.com/88942744/235502923-ae2cd8da-a9e6-45bc-a1e6-084ae2d5b30b.jpeg)
