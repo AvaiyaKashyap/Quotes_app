@@ -32,32 +32,97 @@ class _QuotesCategoryState extends State<QuotesCategory> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ElevatedButton(onPressed: () {
-                setState(() {
-                  Global.allquotes = Global.happyquotes;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
-                });
-              }, child: Text("happy")),
-              ElevatedButton(onPressed: () {
-                setState(() {
-                  Global.allquotes = Global.sadquotes;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
-                });
-              }, child: Text("sad")),
-              ElevatedButton(onPressed: () {
-                setState(() {
-                  Global.allquotes = Global.angryquotes;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
-                });
-              }, child: Text("angry")),
-              ElevatedButton(onPressed: () {
-                setState(() {
-                  Global.allquotes = Global.anxiousquotes;
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
-                });
-              }, child: Text("anxious")),
+              Text("Choose Your Mood"),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Global.allquotes = Global.happyquotes;
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
+                  });
+                },
+                child: Container(
+                  height: 100,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white,width: 2),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text("Happy",style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Global.allquotes = Global.sadquotes;
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
+                  });
+                },
+                child: Container(
+                  height: 100,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white,width: 2),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text("Sad",style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Global.allquotes = Global.angryquotes;
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
+                  });
+                },
+                child: Container(
+                  height: 100,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white,width: 2),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text("angry",style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Global.allquotes = Global.anxiousquotes;
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => quotesPage()));
+                  });
+                },
+                child: Container(
+                  height: 100,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white,width: 2),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text("anxious",style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),),
+                ),
+              ),
             ],
           ),
         ],

@@ -2,6 +2,9 @@ class Global {
   static String endpoint = "";
   static String getQuote = "";
 
+  static List allData = [];
+  static late String currentQuote;
+
   static List gridquote = [
     {
       'title': 'Happy',
